@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j", "APISwaggerNeo4j\APISwaggerNeo4j.csproj", "{5C12C3E6-D88A-47BD-90B7-A14C821DC765}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j.Services", "APISwaggerNeo4j.Services\APISwaggerNeo4j.Services.csproj", "{DC58EBCA-C664-419C-AD49-F2477EA22945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j.Repository", "APISwaggerNeo4j.Repository\APISwaggerNeo4j.Repository.csproj", "{4BC51D62-3A83-4445-83EC-CEE694A72AA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j.Models", "APISwaggerNeo4j.Models\APISwaggerNeo4j.Models.csproj", "{87AD61FC-A9B3-4B09-B617-C58A84C9F898}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4263E568-091F-4082-A922-74E715372C51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C12C3E6-D88A-47BD-90B7-A14C821DC765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C12C3E6-D88A-47BD-90B7-A14C821DC765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C12C3E6-D88A-47BD-90B7-A14C821DC765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C12C3E6-D88A-47BD-90B7-A14C821DC765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC58EBCA-C664-419C-AD49-F2477EA22945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC58EBCA-C664-419C-AD49-F2477EA22945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC58EBCA-C664-419C-AD49-F2477EA22945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC58EBCA-C664-419C-AD49-F2477EA22945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC51D62-3A83-4445-83EC-CEE694A72AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC51D62-3A83-4445-83EC-CEE694A72AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC51D62-3A83-4445-83EC-CEE694A72AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC51D62-3A83-4445-83EC-CEE694A72AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
