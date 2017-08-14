@@ -1,7 +1,7 @@
 # microsoft-SwaggerNeo4jAPI
 
-//.Net API
-swagger api - http://localhost/swagger/ui/index#/Domain
+//.Net swagger api - http://localhost/swagger/ui/index#/Domain
+(Take a look at the attached images neo4j, swagger)
 Cors, neo4jDriver, neo4jClient, webapi
 
 This was a quick exercise to introduce myself to neo4j graphical database. Each Domain has a name and IP. Each IP has to be unique but 
