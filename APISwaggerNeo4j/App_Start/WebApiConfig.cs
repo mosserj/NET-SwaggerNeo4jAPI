@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web.Http;
 using Neo4jClient;
 using System.Configuration;
+using Microsoft.Practices.Unity;
+using APISwaggerNeo4j.Services;
+using APISwaggerNeo4j.Logging;
+using APISwaggerNeo4j.Repository;
 
 namespace APISwaggerNeo4j
 {
@@ -34,6 +38,9 @@ namespace APISwaggerNeo4j
             //client.Connect();
 
             //GraphClient = client;
+
+           
+            
         }
 
         /// <summary>

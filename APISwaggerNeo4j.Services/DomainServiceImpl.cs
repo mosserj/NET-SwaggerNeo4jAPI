@@ -10,15 +10,13 @@ namespace APISwaggerNeo4j.Services
 {
     public class DomainServiceImpl : IDomainService
     {
-        private ILogger logger;
+        private ILogger _logger;
+        private IDomainRepository _repo;
 
-        //INJECT IOC instead of constructor
-        private IDomainRepository repo;
-
-        public DomainServiceImpl(ILogger logger)
+        public DomainServiceImpl(ILogger logger, IDomainRepository repo)
         {
-            this.repo = new DomainRepositoryImpl();
-            this.logger = logger;
+            this._repo = repo;
+            this._logger = logger;
         }
 
         public Domain Get(string name)
@@ -27,7 +25,7 @@ namespace APISwaggerNeo4j.Services
             DomainRepositoryImpl repo = new DomainRepositoryImpl();
             try
             {
-                return repo.Get(name);
+                return _repo.Get(name);
             }
             //change this to not found etc
             catch (HttpException ex)
@@ -39,33 +37,24 @@ namespace APISwaggerNeo4j.Services
 
         public Domain Add(Domain domain)
         {
-            DomainRepositoryImpl repo = new DomainRepositoryImpl();
             try
             {
-                return repo.Add(domain);
+                return _repo.Add(domain);
             }
             catch (HttpException ex)
             {
-                logger.Log(ex.Message);
+                _logger.Log(ex.Message);
                 throw new HttpException(ex.ErrorCode, ex.Message, ex.InnerException);
             }
         }
 
         public void ClearDb()
         {
-            //IoC maybe unity?
-            DomainRepositoryImpl repo = new DomainRepositoryImpl();
-
-            repo.ClearDb();
+            _repo.ClearDb();
         }
 
         public void CreateDomains()
         {
-            //TODO
-            //This has an error in it. You need to click it a few times here and there =/
-
-            //IoC maybe unity?
-            DomainRepositoryImpl repo = new DomainRepositoryImpl();
             try
             {
                 Random random = new Random();
@@ -84,7 +73,7 @@ namespace APISwaggerNeo4j.Services
                     }
 
                     Domain domain = new Domain(GetRandomUniqueIP(), name);
-                    repo.Add(domain);
+                    _repo.Add(domain);
                 }
             }
             //change this to not found etc

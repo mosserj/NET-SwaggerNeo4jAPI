@@ -37,5 +37,13 @@ namespace APISwaggerNeo4j.Validation
 
             return false;
         }
+
+        public static void ValidateObject(object target, string message)
+        {
+            if(target == null)
+            {
+                throw new ArgumentNullException(message);
+            }
+        }
     }
 }

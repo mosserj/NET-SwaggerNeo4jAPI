@@ -10,6 +10,8 @@ using APISwaggerNeo4j.Services;
 using APISwaggerNeo4j.Mapping;
 using System.Web.Http.Cors;
 using APISwaggerNeo4j.Logging;
+using Microsoft.Practices.Unity;
+using APISwaggerNeo4j.Validation;
 
 namespace APISwaggerNeo4j.Controllers
 {
@@ -18,16 +20,16 @@ namespace APISwaggerNeo4j.Controllers
     /// </summary>
     public class DomainController : ApiController
     {
-        private IDomainService service;
+        private IDomainService _service;
+
         /// <summary>
         /// Constructor 
         /// </summary>
-        public DomainController()
+        public DomainController(IDomainService service)
         {
-            //IoC maybe unity?
-            //new DatabaseLogger(); We could specify different logging for the service via Dependency Inversion principle
-            //Probably better off using log4net 
-            service = new DomainServiceImpl(new EventViewerLogger());
+            DomainValidation.ValidateObject(service, "Target 'service' must not be null.");
+
+            _service = service;
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace APISwaggerNeo4j.Controllers
         {
             try
             {
-                return Ok(DomainMapper.ToDomainDTO(service.Get(name)));
+                return Ok(DomainMapper.ToDomainDTO(_service.Get(name)));
             }
             catch(HttpException ex)
             {
@@ -64,7 +66,7 @@ namespace APISwaggerNeo4j.Controllers
         {
             try
             {
-                return Ok(DomainMapper.ToDomainDTO(service.Add(DomainMapper.ToDomain(domain))));
+                return Ok(DomainMapper.ToDomainDTO(_service.Add(DomainMapper.ToDomain(domain))));
             }
             catch (HttpException ex)
             {
@@ -84,7 +86,7 @@ namespace APISwaggerNeo4j.Controllers
         {
             try
             {
-                service.ClearDb();
+                _service.ClearDb();
                 return Ok();
             }
             catch (HttpException ex)
@@ -107,7 +109,7 @@ namespace APISwaggerNeo4j.Controllers
             {
                 //this needs to be async and maybe even talk back to the client as domains are created. For now I'm just going 
                 //to create 100k domains
-                service.CreateDomains();
+                _service.CreateDomains();
                 return Ok();
             }
             catch (HttpException ex)
