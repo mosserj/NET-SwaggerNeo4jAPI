@@ -9,6 +9,7 @@ using APISwaggerNeo4j.ModelDTO;
 using APISwaggerNeo4j.Services;
 using APISwaggerNeo4j.Mapping;
 using System.Web.Http.Cors;
+using APISwaggerNeo4j.Logging;
 
 namespace APISwaggerNeo4j.Controllers
 {
@@ -17,6 +18,17 @@ namespace APISwaggerNeo4j.Controllers
     /// </summary>
     public class DomainController : ApiController
     {
+        private IDomainService service;
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        public DomainController()
+        {
+            //IoC maybe unity?
+            //new DatabaseLogger(); We could specify different logging for the service via Dependency Inversion principle
+            //Probably better off using log4net 
+            service = new DomainServiceImpl(new EventViewerLogger());
+        }
 
         /// <summary>
         /// Get domain by name
@@ -27,8 +39,6 @@ namespace APISwaggerNeo4j.Controllers
         [Route("api/v1/domain/{name}/")]
         public IHttpActionResult Get(string name) 
         {
-            //IoC maybe unity?
-            IDomainService service = new DomainServiceImpl();
             try
             {
                 return Ok(DomainMapper.ToDomainDTO(service.Get(name)));
@@ -52,8 +62,6 @@ namespace APISwaggerNeo4j.Controllers
         [Route("api/v1/domain/add")]
         public IHttpActionResult Post(DomainDTO domain)
         {
-            //IoC maybe unity?
-            IDomainService service = new DomainServiceImpl();
             try
             {
                 return Ok(DomainMapper.ToDomainDTO(service.Add(DomainMapper.ToDomain(domain))));
@@ -74,8 +82,6 @@ namespace APISwaggerNeo4j.Controllers
         [Route("api/v1/domain/clear")]
         public IHttpActionResult ClearDatabase()
         {
-            //IoC maybe unity?
-            IDomainService service = new DomainServiceImpl();
             try
             {
                 service.ClearDb();
@@ -97,8 +103,6 @@ namespace APISwaggerNeo4j.Controllers
         [Route("api/v1/domain/create")] //add an input to change 100k
         public IHttpActionResult CreateRandomDomains()
         {
-            //IoC maybe unity?
-            IDomainService service = new DomainServiceImpl();
             try
             {
                 //this needs to be async and maybe even talk back to the client as domains are created. For now I'm just going 

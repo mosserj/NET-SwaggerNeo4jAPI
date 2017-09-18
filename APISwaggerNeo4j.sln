@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j.Models", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4263E568-091F-4082-A922-74E715372C51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APISwaggerNeo4j.Logging", "APISwaggerNeo4j.Logging3\APISwaggerNeo4j.Logging.csproj", "{DEA1AD50-32CF-42BF-BAF8-44C155779D4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AD61FC-A9B3-4B09-B617-C58A84C9F898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA1AD50-32CF-42BF-BAF8-44C155779D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA1AD50-32CF-42BF-BAF8-44C155779D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA1AD50-32CF-42BF-BAF8-44C155779D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA1AD50-32CF-42BF-BAF8-44C155779D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

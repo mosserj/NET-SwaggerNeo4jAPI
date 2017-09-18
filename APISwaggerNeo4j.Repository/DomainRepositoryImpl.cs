@@ -9,7 +9,7 @@ using Neo4jClient;
 
 namespace APISwaggerNeo4j.Repository
 {
-    public class DomainRepositoryImpl
+    public class DomainRepositoryImpl : IDomainRepository
     {
         GraphClient client;
 
@@ -84,7 +84,6 @@ namespace APISwaggerNeo4j.Repository
         /// <summary>
         /// Clear NEO4J Database
         /// </summary>
-        /// <param name="client"></param>
         public void ClearDb()
         {
             client.Cypher

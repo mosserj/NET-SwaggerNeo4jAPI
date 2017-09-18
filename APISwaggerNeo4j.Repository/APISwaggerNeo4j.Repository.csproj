@@ -98,6 +98,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDomainRepository.cs" />
     <Compile Include="DomainRepositoryImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

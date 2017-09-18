@@ -4,11 +4,23 @@ using System.Linq;
 using System.Web;
 using APISwaggerNeo4j.Models;
 using APISwaggerNeo4j.Repository;
+using APISwaggerNeo4j.Logging;
 
 namespace APISwaggerNeo4j.Services
 {
     public class DomainServiceImpl : IDomainService
     {
+        private ILogger logger;
+
+        //INJECT IOC instead of constructor
+        private IDomainRepository repo;
+
+        public DomainServiceImpl(ILogger logger)
+        {
+            this.repo = new DomainRepositoryImpl();
+            this.logger = logger;
+        }
+
         public Domain Get(string name)
         {
             //IoC maybe unity?
@@ -27,16 +39,14 @@ namespace APISwaggerNeo4j.Services
 
         public Domain Add(Domain domain)
         {
-            //IoC maybe unity?
             DomainRepositoryImpl repo = new DomainRepositoryImpl();
             try
             {
                 return repo.Add(domain);
             }
-            //change this to not found etc
             catch (HttpException ex)
             {
-                // Add logging
+                logger.Log(ex.Message);
                 throw new HttpException(ex.ErrorCode, ex.Message, ex.InnerException);
             }
         }

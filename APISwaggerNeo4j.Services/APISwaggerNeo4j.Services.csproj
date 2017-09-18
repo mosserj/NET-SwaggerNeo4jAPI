@@ -70,6 +70,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\APISwaggerNeo4j.Logging3\APISwaggerNeo4j.Logging.csproj">
+      <Project>{dea1ad50-32cf-42bf-baf8-44c155779d4b}</Project>
+      <Name>APISwaggerNeo4j.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\APISwaggerNeo4j.Models\APISwaggerNeo4j.Models.csproj">
       <Project>{87ad61fc-a9b3-4b09-b617-c58a84c9f898}</Project>
       <Name>APISwaggerNeo4j.Models</Name>

@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <AssemblyName>APISwaggerNeo4j.Logging</AssemblyName>
+    <RootNamespace>APISwaggerNeo4j.Logging</RootNamespace>
+  </PropertyGroup>
+
+</Project>
